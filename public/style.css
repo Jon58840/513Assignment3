@@ -53,8 +53,9 @@ form button
 {
   margin: 5px;
   padding: 2px;
-  height: 25px;
+  height: 35px;
   display: flex;
+  align-items: center;
   background-color: #A0A0A0;
 }
 
