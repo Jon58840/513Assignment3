@@ -31,21 +31,22 @@ io.on('connection', function(socket){
   
   socket.on('chat', function(msg){
     var timeStamp = getTimeStamp();
+    //Compose the final message by adding username with color, and timestamp
     var finalMessage = "<font color=rgb(" + color[0].toString() + "," + color[1].toString() + "," + color[2].toString() + ")>" +
                          username + "</font> " + timeStamp + ": " + msg;
-    var command = false;
+    var command = false;  //Variable to see if incoming message is a command
     
 	  if (msg.match(/\/nick [a-zA-Z0-9]+/))
-    {//Look for the /nick command
+    {//Look for the /nick command followed by an alphanumeric string
       command = true;
       var newUsername = msg.split(" ")[1];
       var duplicate = false;
       var socketIndex = 0;
       
       for (var i = 0; i < clientArray.length; i++)
-      {
+      {//Look through all the users
         if (clientArray[i] == newUsername)
-        {
+        {//If the name already exists
           duplicate = true;
           var message = "SYSTEM " + timeStamp + ": Username \"" + newUsername + 
                           "\" is already in use.";
@@ -60,8 +61,7 @@ io.on('connection', function(socket){
         }
       }
       if (!duplicate)
-      {
-        //console.log('Message: ' + finalMessage);
+      {//If the name is not a duplicate, do what is necessary
         var message = "SYSTEM " + timeStamp + ": Username has been successfully changed from \"" +
                         username + "\" to \"" + newUsername + "\".";
         socket.emit('system', message);
@@ -79,7 +79,6 @@ io.on('connection', function(socket){
       var hexColor = msg.split(" ")[1];
       var rgb = parseRGB(hexColor);
       
-      
       //console.log('Message: ' + finalMessage);
       var message = "SYSTEM " + timeStamp + ": Color has been successfully changed.";
       socket.emit('system', message);
@@ -90,11 +89,12 @@ io.on('connection', function(socket){
     if (!command)
     {//If the entered text was not a command then we'll send it as a message
       if (messageHistoryArray.length == MAX_MESSAGE_HISTORY)
-      {
+      {//If we've hit our max amoutn of old messages, shift one off
         messageHistoryArray.shift();
       }
       messageHistoryArray.push(finalMessage);
       
+      //Emit necessary messages
       console.log('Message: ' + finalMessage);
       socket.emit('selfChat', finalMessage);        //Self message, to be bolded
       socket.broadcast.emit('chat', finalMessage);  //Message to all others
