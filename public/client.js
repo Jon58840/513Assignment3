@@ -9,11 +9,15 @@ $(function() {
     });
 	
     socket.on('chat', function(msg){
-	    $('#messages').append($('<li>').text(msg));
+	    $('#messages').append($('<li>').html(msg));
+    });
+    
+    socket.on('selfChat', function(msg){
+	    $('#messages').append($('<li>').html('<b>' + msg + '</b>'));
     });
     
     socket.on('system', function(msg){
-	    $('#messages').append($('<li>').text(msg));
+	    $('#messages').append($('<li>').html(msg));
     });
     
     socket.on('nameChange', function(username){
@@ -24,7 +28,7 @@ $(function() {
 	    $('#messages').empty();
       for (var i = 0; i < messageHistoryArray.length; i++)
       {
-        $('#messages').append($('<li>').text(messageHistoryArray[i]));
+        $('#messages').append($('<li>').html(messageHistoryArray[i]));
       }
     });
     

@@ -42,33 +42,34 @@ form button
   display: flex;
   background-color: #909090;
   position: fixed;
-  height: 100%;
+  height: 93%;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  bottom: 43px;
 }
 
 #leftTopBar, #rightTopBar
 {
   margin: 5px;
   height: 20px;
+  display: flex;
+  background-color: #A0A0A0;
 }
 
 #leftColumn
 {
   height: 100%;
   width: 83%;
-  background-color: #FF0000;
+  background-color: #ADCEF5;
 }
 
 #rightColumn
 {
   height: 100%;
   width: 15%;
-  background-color: #00FF00;
+  background-color: #97C5F9;
 }
-
-
 
 #messages
 {
@@ -77,6 +78,10 @@ form button
   padding: 0;
   display: flex;
   flex-direction: column-reverse;
+  position: absolute;
+  bottom: 10px;
+  vertical-align: top;
+  width: 81.75%;
 }
 #messages li
 {
@@ -92,7 +97,25 @@ form button
   background: #ADCEF5;
 }
 
-
+#userList
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#userList li
+{
+  padding: 5px 10px;
+  width: 100%
+}
+#userList li:nth-child(odd)
+{
+  background: #ADCEF5;
+}
+#userList li:nth-child(even)
+{
+  background: #97C5F9;
+}
 
 
 
