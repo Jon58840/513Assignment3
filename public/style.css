@@ -1,8 +1,100 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font: 13px Helvetica, Arial; }
-form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-#messages { list-style-type: none; margin: 0; padding: 0; }
-#messages li { padding: 5px 10px; }
-#messages li:nth-child(odd) { background: #eee; }
+body
+{
+  font: 13px Helvetica, Arial;
+}
+#formID
+{
+  background: #000;
+  padding: 3px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+form input
+{
+  border: 0;
+  padding: 10px;
+  width: 90%;
+  margin-right: .5%;
+}
+form button
+{
+  width: 9%;
+  background: rgb(130, 224, 255);
+  border: none;
+  padding: 10px;
+}
+
+#outerBox
+{
+  padding: 20px;
+  background-color: #808080;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+#mainBox
+{
+  padding: 10px;
+  display: flex;
+  background-color: #909090;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#leftTopBar, #rightTopBar
+{
+  margin: 5px;
+  height: 20px;
+}
+
+#leftColumn
+{
+  height: 100%;
+  width: 83%;
+  background-color: #FF0000;
+}
+
+#rightColumn
+{
+  height: 100%;
+  width: 15%;
+  background-color: #00FF00;
+}
+
+
+
+#messages
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column-reverse;
+}
+#messages li
+{
+  padding: 5px 10px;
+  width: 100%
+}
+#messages li:nth-child(odd)
+{
+  background: #97C5F9;
+}
+#messages li:nth-child(even)
+{
+  background: #ADCEF5;
+}
+
+
+
+
+
+
+

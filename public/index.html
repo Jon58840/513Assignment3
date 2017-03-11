@@ -5,18 +5,35 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
+    <div id="outerBox">
+      <div id="mainBox">
+        <div id="leftColumn">
+          <div id="leftTopBar">
+            <h2 id="usernameHeader">usernameHeader</h2>
+          </div>
+          <ul id="messages"></ul>
+        </div>
+        
+        <div id="rightColumn">
+          <div id="rightTopBar">
+            <h2 id="usersHeader">Online users:</h2>
+          </div>
+          <ul id="userList"></ul>
+        </div>
+      </div>
+      
+      <form id="formID" action="">
+        <input id="m" autocomplete="off" /><button>Send</button>
+      </form>
+    </div>
     <script
-       src="https://code.jquery.com/jquery-3.1.1.min.js"
-       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-       crossorigin="anonymous"></script>
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/client.js"></script>
-	<script>
-	  var socket = io();
-	</script>
+    <script>
+      var socket = io();
+    </script>
   </body>
 </html>
