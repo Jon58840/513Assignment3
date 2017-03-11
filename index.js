@@ -109,8 +109,20 @@ function getTimeStamp()
 
 function generateUsername()
 {
-  var clientCount = clientArray.length + 1
-  var username = "User#" + clientCount;
+  var unique = false;
+  var username = "defaultUsername";
+  
+  while(!unique)
+  {
+    var identifier = Math.floor(Math.random() * 9999);
+    username = "User#" + identifier;
+    
+    if (findUserIndex(username) == -1)
+    {
+      unique = true;
+    }
+  }
+  
   clientArray.push(username);
   
   return username;
@@ -125,6 +137,8 @@ function findUserIndex(username)
       return i;
     }
   }
+  
+  return -1;  //No index found
 }
 
 
